@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 <!-- //Default-JavaScript-File -->
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <!-- banner -->
@@ -619,7 +619,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<h3>Contact me</h3>
 		</div>
 			<div class="contact-w3ls">
-				<form id="gform" action="https://script.google.com/macros/s/AKfycbwrRsiOr-zvUCfBhyiSZPUZmhTmyCcLLyt1OiBX0g/exec" method="post">
+				<form id="submit-form" action="">
 					<div class="col-md-7 col-sm-7 contact-left agileits-w3layouts">
 						<input type="text" name="First Name" placeholder="Name" required="">
 						<input type="email"  class="email" name="Email" placeholder="Email" required="">
@@ -732,6 +732,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								
 			});
 	</script>
+<script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbwrRsiOr-zvUCfBhyiSZPUZmhTmyCcLLyt1OiBX0g/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 
 
 </body>
